@@ -15,7 +15,6 @@ rl.on('line', (line) => {
 
 const parseMul = (val) => {
   let vals = [...val.matchAll(/\d+/g)];
-  console.log(vals);
   return vals[0] * vals[1];
 }
 
@@ -31,9 +30,10 @@ const findNumbers = (data) => {
       if(v.includes("don't()"))
         active = false;
     }
-    console.log(res);
+    return res;
 }
 
 rl.on('close', () => {
-  findNumbers(input);
+  let res = findNumbers(input);
+  console.log(res)
 });
